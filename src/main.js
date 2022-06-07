@@ -3,10 +3,11 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 10:15:45
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-07 15:40:07
+ * @LastEditTime: 2022-06-07 17:05:40
  */
 import { createApp } from 'vue'
 import App from './App.vue'
+import '@/assets/css/reset.css'
 
 import router from './router/index'
 

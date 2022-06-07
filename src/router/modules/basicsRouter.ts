@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 15:14:51
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-07 15:59:56
+ * @LastEditTime: 2022-06-07 16:37:22
  */
 
 
@@ -26,6 +26,16 @@ export const constantRouterMap: RouteRecordRaw[] = [
     {
         path: '/404',
         name: '404',
+        component: () => import('@/view/errorPages/404.vue')
+    },
+    {
+        path: '/403',
+        name: '403',
+        component: () => import('@/view/errorPages/404.vue')
+    },
+    {
+        path: '/500',
+        name: '500',
         component: () => import('@/view/errorPages/404.vue')
     }
 ]

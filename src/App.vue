@@ -1,14 +1,31 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<!--
+ * @Descripttion: 
+ * @Author: zhaodongfeng
+ * @Date: 2022-06-07 10:15:45
+ * @LastEditors: zhaodongfeng
+ * @LastEditTime: 2022-06-07 11:51:11
+-->
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <a-config-provider v-bind="getPopupContainer">
+    <router-view></router-view>
+  </a-config-provider>
 </template>
-
+ 
+<script lang="ts">
+import { defineComponent } from 'vue'
+import zhCN from 'ant-design-vue/es/locale/zh_CN'
+export default defineComponent({
+  name: 'App',
+  data() {
+    return {
+      getPopupContainer: {
+        locale: zhCN
+      }
+    }
+  }
+})
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

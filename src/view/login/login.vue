@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 15:23:52
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-07 17:29:21
+ * @LastEditTime: 2022-06-08 09:42:23
 -->
 <template>
     <div class="login-container">
@@ -107,6 +107,7 @@ export default defineComponent({
   width: 100%;
   height: 100vh;
   background: url('/src/assets/login/bg.jpg');
+  background-attachment: fixed;
   background-size: 100% 100%;
   overflow: hidden;
   & .login-container-form {
@@ -119,7 +120,7 @@ export default defineComponent({
     background: url('/src/assets/login/form_bg.png');
     background-size: 100% 100%;
     border-radius: 10px;
-    box-shadow: 0 2px 8px 0 rgba(7, 17, 27, 0.06);
+    box-shadow: 0 2px 8px 0 rgba(7, 17, 27, 0.16);
     & .login-container-hello {
       font-size: 32px;
       color: #fff;

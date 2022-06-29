@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 15:14:51
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-07 16:37:22
+ * @LastEditTime: 2022-06-29 10:26:09
  */
 
 
@@ -13,8 +13,8 @@
  * @Date: 2022-06-07 15:19:10
  * @@param: RouteRecordRaw
  */
- import { RouteRecordRaw } from "vue-router";
-
+import { RouteRecordRaw } from "vue-router";
+import Layout from "@/view/layout/index.vue";
 // 基础路由 所有权限通用路由表
 // 如首页和登录页和一些不用权限的公用页面
 export const constantRouterMap: RouteRecordRaw[] = [
@@ -37,5 +37,65 @@ export const constantRouterMap: RouteRecordRaw[] = [
         path: '/500',
         name: '500',
         component: () => import('@/view/errorPages/404.vue')
+    },
+    {
+        path: '/layout',
+        name: 'Name',
+        component: () => import('@/view/layout/index.vue')
+    },
+    {
+        path: '/',
+        component: Layout,
+        redirect: '/dashboard/index'
+    }
+]
+
+export const siderRouterMap: RouteRecordRaw[] = [
+    {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: () => Layout,
+        redirect:'/dashboard/index',
+        meta: {
+            hidden: false, //路由是否展示
+            title: '首页'
+        },
+        children:[
+            {
+                path: '/dashboard/index',
+                name: 'DashboardIndex',
+                component: () => import('@/view/dashboard/index.vue'),
+                meta:{
+                    hidden: true
+                }
+            }
+        ]
+    },
+    {
+        path: '/article',
+        name:'Article',
+        redirect:'/article/index',
+        component: () => Layout,
+        meta:{
+            title: '文章'
+        },
+        children:[
+            {
+                path:'/article/index',
+                name:'ArticleList',
+                component: () => import('@/view/dashboard/index.vue'),
+                meta:{
+                    title: '文章列表'
+                }
+            },
+            {
+                path:'/article/category',
+                name:'ArticleCategory',
+                component: () => import('@/view/dashboard/index.vue'),
+                meta:{
+                    title: '分类管理'
+                }
+            }
+        ]
     }
 ]

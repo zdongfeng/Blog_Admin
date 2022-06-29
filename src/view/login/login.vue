@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 15:23:52
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-08 09:42:23
+ * @LastEditTime: 2022-06-08 15:22:22
 -->
 <template>
     <div class="login-container">
@@ -47,7 +47,7 @@ import { message } from 'ant-design-vue'
 import { LoginFrom } from '@/types/views/login'
 import { defineComponent, ref, reactive, UnwrapRef } from "vue";
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue'
-import { any } from "_vue-types@3.0.2@vue-types";
+import { login } from "@/api/login";
 
 function login_in_form() {
     const form: UnwrapRef<LoginFrom> = reactive({
@@ -88,80 +88,103 @@ export default defineComponent({
         const router = useRouter()
 
         // 登录提交
-        const handleSumbit = (): void => {
+        const handleSubmit = (): void => {
             formRef.value.validate()
                 .then(() => {
-                    console.log('登录')
+                    console.log('登录', {
+                        "username": "东凤1",
+                        "password": "123456",
+                        "status": true,
+                        "photo": 15551353978
+                    })
+                    login({
+                        "username": "东凤1",
+                        "password": "123456",
+                        "status": true,
+                        "photo": 15551353978
+                    })
+                        .then((res) =>
+                            console.log(res)
+                        )
+                    .catch(e => console.log('失败'+e))
                 })
                 .catch((e: string) => {
                     console.log('验证失败' + e)
                 })
         }
-        return { formRef, form, rules, handleSumbit}
+        return { formRef, form, rules, handleSubmit }
     }
 })
 </script>
 
 <style lang="scss" scoped>
 .login-container {
-  width: 100%;
-  height: 100vh;
-  background: url('/src/assets/login/bg.jpg');
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  overflow: hidden;
-  & .login-container-form {
-    width: calc(100% - 40px);
-    height: 400px;
-    padding: 4vh;
-    margin-top: calc((100vh - 380px) / 2);
-    margin-right: 20px;
-    margin-left: 20px;
-    background: url('/src/assets/login/form_bg.png');
-    background-size: 100% 100%;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px 0 rgba(7, 17, 27, 0.16);
-    & .login-container-hello {
-      font-size: 32px;
-      color: #fff;
-    }
-    & .login-container-title {
-      margin-bottom: 30px;
-      font-size: 20px;
-      color: #fff;
-    }
-  }
-  .login-container-tips {
-    position: fixed;
-    bottom: 10px;
     width: 100%;
-    height: 40px;
-    color: rgba(255, 255, 255, 0.856);
-    text-align: center;
-  }
+    height: 100vh;
+    background: url('/src/assets/login/bg.jpg');
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    overflow: hidden;
+
+    & .login-container-form {
+        width: calc(100% - 40px);
+        height: 400px;
+        padding: 4vh;
+        margin-top: calc((100vh - 380px) / 2);
+        margin-right: 20px;
+        margin-left: 20px;
+        background: url('/src/assets/login/form_bg.png');
+        background-size: 100% 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px 0 rgba(7, 17, 27, 0.16);
+
+        & .login-container-hello {
+            font-size: 32px;
+            color: #fff;
+        }
+
+        & .login-container-title {
+            margin-bottom: 30px;
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+
+    .login-container-tips {
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        height: 40px;
+        color: rgba(255, 255, 255, 0.856);
+        text-align: center;
+    }
 }
 </style>
 <style lang="scss">
 .login-container {
-  & .login-container-form {
-    & .ant-col {
-      width: 100%;
-      padding: 0 10px 0 10px;
+    & .login-container-form {
+        & .ant-col {
+            width: 100%;
+            padding: 0 10px 0 10px;
+        }
+
+        & .ant-input {
+            height: 35px;
+        }
+
+        & .ant-btn {
+            width: 100%;
+            height: 45px;
+            border-radius: 99px;
+        }
+
+        & .ant-form-item-explain-error {
+            color: #faad14;
+        }
+
+        & .ant-form-item-has-error {
+            border-color: #faad14;
+        }
     }
-    & .ant-input {
-      height: 35px;
-    }
-    & .ant-btn {
-      width: 100%;
-      height: 45px;
-      border-radius: 99px;
-    }
-    & .ant-form-item-explain-error {
-      color: #faad14;
-    }
-    & .ant-form-item-has-error {
-      border-color: #faad14;
-    }
-  }
 }
 </style>

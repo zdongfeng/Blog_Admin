@@ -3,12 +3,14 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 15:23:52
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-08 15:22:22
+ * @LastEditTime: 2022-06-29 15:53:52
 -->
 <template>
     <div class="login-container">
         <a-row>
-            <a-col :xs="0" :md="0" :sm="12" :lg="14" :xl="16"></a-col>
+            <a-col :xs="0" :md="0" :sm="12" :lg="14" :xl="16" class="login-logo">
+                <img src="@/assets/logo.png" alt="">
+            </a-col>
             <a-col :xs="24" :sm="24" :md="12" :lg="10" :xl="6">
                 <div class="login-container-form">
                     <div class="login-container-hello">你好</div>
@@ -185,6 +187,18 @@ export default defineComponent({
         & .ant-form-item-has-error {
             border-color: #faad14;
         }
+    }
+}
+.login-logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-end;
+
+    img{
+        margin-top: 100px;
+        width: 200px;
+        border-radius: 50%;
     }
 }
 </style>

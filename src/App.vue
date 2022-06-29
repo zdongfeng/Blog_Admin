@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 10:15:45
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-07 17:06:21
+ * @LastEditTime: 2022-06-29 17:09:50
 -->
 
 <template>
@@ -28,9 +28,18 @@ export default defineComponent({
 </script>
 <style>
 #app {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
+}
+body{
+  background-color: #F3F3F4;
+}
+.container {
+  width: 100%;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 </style>

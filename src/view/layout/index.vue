@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-28 15:24:03
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-29 11:08:11
+ * @LastEditTime: 2022-06-29 17:12:52
 -->
 <template>
   <a-layout class="layout">
@@ -14,7 +14,7 @@
     </a-layout-sider>
 
 
-    <a-layout class="header">
+    <a-layout>
       <!-- 头部 -->
       <a-layout-header class="header">
         <layout-header v-model:collapsed="collapsed" />

@@ -125,7 +125,7 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
  .main__container {
-  background-color: #FFF;
+  // background-color: #FFF;
   min-height: 280px;
   overflow: hidden;
 }

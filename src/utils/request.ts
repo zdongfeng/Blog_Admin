@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 17:45:39
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-08 12:01:16
+ * @LastEditTime: 2022-07-05 14:58:17
  */
 
 import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from "axios";
@@ -32,7 +32,7 @@ const errorHandler = (error: AxiosError): AxiosError | Promise<AxiosError> => {
  * @param {Object} config 配置参数
  */
 request.interceptors.request.use((config: AxiosRequestConfig): AxiosRequestConfig => {
-    config.headers && (config.headers['token'] = storage.get('tokne') || '')
+    config.headers && (config.headers['authorization'] = storage.get('tokne') || '')
     return config
 }, errorHandler)
 
@@ -41,9 +41,9 @@ request.interceptors.request.use((config: AxiosRequestConfig): AxiosRequestConfi
  * @param { Object } response 返回的数据
  */
 request.interceptors.response.use((response: AxiosResponse): AxiosResponse | Promise<AxiosResponse> => {
-    if (response.data.code === 200) {
+    if (response.data.code === 200 || response.data.code === 0) {
         return response
-    } else if (response.data.code === -401) {
+    } else if (response.data.code === 401) {
         // 登录失效
         storage.remove('token')
         router.push({ path: '/login', query: { redirect: router.currentRoute.value.fullPath } })

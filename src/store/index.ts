@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-08 10:11:08
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-29 11:57:56
+ * @LastEditTime: 2022-06-30 13:54:51
  */
 import { createStore } from "vuex";
 import user, {UserState} from './moudles/user'
@@ -22,11 +22,4 @@ const store = createStore<AllState>({
     }
 
 })
-
-function fn(){
-    let a = 1
-    let b =2
-    let sum = a + b 
-    return sum
-}
 export default store

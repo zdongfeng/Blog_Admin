@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 15:14:51
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-29 10:26:09
+ * @LastEditTime: 2022-07-01 11:37:14
  */
 
 
@@ -81,9 +81,18 @@ export const siderRouterMap: RouteRecordRaw[] = [
         },
         children:[
             {
+                path:'/article/create',
+                name:'ArticleCreate',
+                component: () => import('@/view/article/create/create.vue'),
+                meta:{
+                    title: '创作文章',
+                    hidden: true
+                }
+            },
+            {
                 path:'/article/index',
                 name:'ArticleList',
-                component: () => import('@/view/dashboard/index.vue'),
+                component: () => import('@/view/article/index.vue'),
                 meta:{
                     title: '文章列表'
                 }

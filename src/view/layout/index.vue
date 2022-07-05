@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-28 15:24:03
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-29 17:12:52
+ * @LastEditTime: 2022-07-05 15:43:26
 -->
 <template>
   <a-layout class="layout">
@@ -70,7 +70,7 @@ export default defineComponent({
   }
 
   & .container {
-    padding: 8px;
+    padding: 20px;
     overflow-y: auto;
     overflow-x: hidden;
   }

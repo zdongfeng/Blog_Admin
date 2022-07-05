@@ -5,6 +5,7 @@
       <menu-fold-outlined v-else class="trigger" @click="$emit('update:collapsed', !collapsed)" />
     </div>
     <div class="header__right">
+      <a-button type="primary" @click="toCreate" style="margin-right: 20px;">开搞 !</a-button>
       <a-dropdown :trigger="['click', 'hover']">
         <div class="header__avatar">
           <a-avatar>
@@ -29,6 +30,7 @@
   </div>
 </template>
 <script lang="ts">
+import { useRouter } from 'vue-router'
 import aIcon from '@/components/aicon/aicon.vue'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'
 import { defineComponent } from 'vue'
@@ -58,8 +60,13 @@ export default defineComponent({
     const logout = () => {
       console.log('logout')
     }
+    // 跳转到文章开发页面
+    const router = useRouter()
+    const toCreate = () => {
+      router.push('/article/create')
+    }
 
-    return { logout }
+    return { logout,toCreate }
   }
 })
 </script>

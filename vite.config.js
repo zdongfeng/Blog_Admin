@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 10:15:45
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-28 18:10:14
+ * @LastEditTime: 2022-07-05 14:36:04
  */
 import { defineConfig } from 'vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -23,10 +23,17 @@ export default defineConfig({
     host: '0.0.0.0',
     port:886,
     proxy: {
-      '/api': {
-        target: 'http://192.168.2.120:4321/',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+      '/auth': {
+        target: 'http://192.168.2.126:4321/',
+        changeOrigin: true
+      },
+      '/upload': {
+        target: 'http://192.168.2.126:4321/',
+        changeOrigin: true
+      },
+      '/article': {
+        target: 'http://192.168.2.126:4321/',
+        changeOrigin: true
       }
     }
   }

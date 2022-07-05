@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-08 14:46:17
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-08 15:32:20
+ * @LastEditTime: 2022-06-30 11:33:56
  */
 import request from "@/utils/request";
 
@@ -14,7 +14,7 @@ import request from "@/utils/request";
 
 export const login = (data:object)  =>{
     return request({
-        url: '/users/login',
+        url: '/auth/login',
         method: 'post',
         data
     })

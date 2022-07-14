@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 10:15:45
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-06-29 17:09:50
+ * @LastEditTime: 2022-07-13 15:09:37
 -->
 
 <template>
@@ -41,5 +41,16 @@ body{
   padding: 20px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+.header{
+  padding-bottom: 10px;
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
 </style>

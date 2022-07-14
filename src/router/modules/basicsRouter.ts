@@ -3,7 +3,7 @@
  * @Author: zhaodongfeng
  * @Date: 2022-06-07 15:14:51
  * @LastEditors: zhaodongfeng
- * @LastEditTime: 2022-07-01 11:37:14
+ * @LastEditTime: 2022-07-13 14:21:14
  */
 
 
@@ -55,17 +55,17 @@ export const siderRouterMap: RouteRecordRaw[] = [
         path: '/dashboard',
         name: 'Dashboard',
         component: () => Layout,
-        redirect:'/dashboard/index',
+        redirect: '/dashboard/index',
         meta: {
             hidden: false, //路由是否展示
             title: '首页'
         },
-        children:[
+        children: [
             {
                 path: '/dashboard/index',
                 name: 'DashboardIndex',
                 component: () => import('@/view/dashboard/index.vue'),
-                meta:{
+                meta: {
                     hidden: true
                 }
             }
@@ -73,38 +73,60 @@ export const siderRouterMap: RouteRecordRaw[] = [
     },
     {
         path: '/article',
-        name:'Article',
-        redirect:'/article/index',
+        name: 'Article',
+        redirect: '/article/index',
         component: () => Layout,
-        meta:{
+        meta: {
             title: '文章'
         },
-        children:[
+        children: [
             {
-                path:'/article/create',
-                name:'ArticleCreate',
+                path: '/article/create',
+                name: 'ArticleCreate',
                 component: () => import('@/view/article/create/create.vue'),
-                meta:{
+                meta: {
                     title: '创作文章',
                     hidden: true
                 }
             },
             {
-                path:'/article/index',
-                name:'ArticleList',
+                path: '/article/index',
+                name: 'ArticleList',
                 component: () => import('@/view/article/index.vue'),
-                meta:{
+                meta: {
                     title: '文章列表'
                 }
             },
+
             {
-                path:'/article/category',
-                name:'ArticleCategory',
+                path: '/article/tag',
+                name: 'ArticleTag',
                 component: () => import('@/view/dashboard/index.vue'),
-                meta:{
-                    title: '分类管理'
+                meta: {
+                    title: '标签管理'
                 }
             }
+        ]
+    },
+    {
+        path: '/category',
+        name: 'Category',
+        redirect: '/category/index',
+        component: () => Layout,
+        meta: {
+            title: '分类'
+        },
+        children: [
+
+            {
+                path: '/category/category',
+                name: 'CategoryIndex',
+                component: () => import('@/view/dashboard/index.vue'),
+                meta: {
+                    title: '分类管理'
+                }
+            },
+
         ]
     }
 ]
